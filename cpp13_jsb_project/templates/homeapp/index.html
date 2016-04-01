@@ -6,6 +6,7 @@
     hello, world<br />
     viewmodel.name = {{ viewmodel.name  }}<br />
     viewmodel.age = {{ viewmodel.age  }}<br />
+    pageIndex = {{ viewmodel.pageIndex }}
         <table>
     {% for item in viewmodel.models  %}
              <tr>
@@ -15,5 +16,12 @@
             </tr>
     {% endfor %}
          </table>
+
+         <form method="post" action="" enctype="multipart/form-data" >
+             {% csrf_token %}
+             <input type="text" name="uname" value="" placeholder="请输入名字"/>
+             <input type="text" name="upwd" value="" placeholder="请输入密码"/>
+             <input type="submit" value="提交" />
+         </form>
      </body>
 </html>

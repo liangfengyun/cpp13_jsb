@@ -2,6 +2,9 @@
 from homeapp.models import TTest
 import uuid
 
+# import connection
+# from django.db import connection
+
 class ttest_dal():
 
     @staticmethod
@@ -21,8 +24,16 @@ class ttest_dal():
 
     @staticmethod
     def selectall():
+        """
         objs = TTest.objects.all()
         return objs
+        """
+        # paraint1 = "11 or 1 = 1"
+        paraint1 = str(1)
+
+        raw_sql = "select guid, uname, upwd, 'a' as haha from homeapp_ttest where 1 = %s"
+        raw_querySet = TTest.objects.raw(raw_sql, [ paraint1 ])
+        return raw_querySet
 
     @staticmethod
     def add(addingmodel):

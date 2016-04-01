@@ -1,7 +1,7 @@
 #coding:utf-8
 from django.shortcuts import render
 from django.http import HttpResponse
-from homeapp.models import TTest
+from homeapp.BLL.ttest_service import ttest_service
 
 # Create your views here.
 def index(request):
@@ -30,7 +30,7 @@ def index(request):
 
         # 从这里开始，是查询数据库的测试语句
         # testmodel = TTest.objects.all()[0]
-        allmodels = TTest.objects.all()
+        allmodels = ttest_service.selectall()
         obj1 = {
             "viewmodel":{
                 "name":"zjr",

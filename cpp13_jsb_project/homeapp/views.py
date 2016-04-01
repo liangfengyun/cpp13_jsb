@@ -10,8 +10,8 @@ from homeapp.models import TTest2
 
 """
 class article:
-
     @staticmethod
+    haha this is my etst2
     def index(request):
         return HttpResponse("this is article index!")
 """

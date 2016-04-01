@@ -1,7 +1,32 @@
 #coding:utf-8
 from django.shortcuts import render
 from django.http import HttpResponse
+from django.http import HttpResponseRedirect
 from homeapp.BLL.ttest_service import ttest_service
+
+def delete(request):
+    todelguid = request.GET.get("guid")
+    ttest_service.delete(todelguid)
+
+    # 显示index页面
+    return HttpResponseRedirect("/homeapp/index")
+
+def add(request):
+    if request.method == "POST":
+        print "this is post query"
+        # 添加到数据库
+        addingmodel = {
+            "uname":request.POST.get("uname"),
+            "upwd":request.POST.get("upwd"),
+        }
+
+        ttest_service.add(addingmodel)
+
+        # 显示index页面
+        return HttpResponseRedirect("/homeapp/index")
+    else:
+        print "this is get query"
+        return render(request, "homeapp/add.html", {})
 
 # Create your views here.
 def index(request):

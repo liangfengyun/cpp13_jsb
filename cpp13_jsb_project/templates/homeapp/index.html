@@ -1,8 +1,21 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <script>
+            function add(){
+                window.location.href = "/homeapp/add";
+            }
+
+            function delthis(strguid){
+                if (!confirm("确定删除？")){
+                    return false;
+                }
+                window.location.href = "/homeapp/delete?guid=" + strguid;
+            }
+        </script>
     </head>
     <body>
+    <a href="javascript:add()" >添加</a>
     hello, world<br />
     viewmodel.name = {{ viewmodel.name  }}<br />
     viewmodel.age = {{ viewmodel.age  }}<br />
@@ -13,15 +26,17 @@
                  <td>{{ item.guid  }}</td>
                 <td>{{ item.uname  }}</td>
                  <td>{{ item.upwd  }}</td>
+                 <td><input type="button" value="删除" onclick="delthis('{{ item.guid }}')"/>         </td>
             </tr>
     {% endfor %}
          </table>
-
+        {% comment %}
          <form method="post" action="" enctype="multipart/form-data" >
              {% csrf_token %}
              <input type="text" name="uname" value="" placeholder="请输入名字"/>
              <input type="text" name="upwd" value="" placeholder="请输入密码"/>
              <input type="submit" value="提交" />
          </form>
+         {% endcomment %}
      </body>
 </html>

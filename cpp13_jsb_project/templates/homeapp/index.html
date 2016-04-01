@@ -44,5 +44,15 @@
              <input type="submit" value="提交" />
          </form>
          {% endcomment %}
+         <label>同时增加两条数据的事务测试</label>
+         <form method="post" action="" enctype="multipart/form-data" >
+             {% csrf_token %}
+             <label>表TTest</label>
+             <input type="text" name="uname" value="" placeholder="请输入名字"/>
+             <input type="password" name="upwd" value="" placeholder="请输入密码"/><br />
+             <label>表TTest</label>
+             <input type="text" name="rname" value="" placeholder="请输入rname"/>
+             <input type="submit" value="提交" />
+         </form>
      </body>
 </html>

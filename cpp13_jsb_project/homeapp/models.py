@@ -9,3 +9,12 @@ class TTest(models.Model):
 
     def __unicode__(self):
         return self.guid
+
+class TTest2(models.Model):
+
+    guid=models.CharField(max_length=36, primary_key=True)
+    rname=models.CharField(max_length=50, null=True)
+    pguid=models.CharField(max_length=50)
+
+    def __unicode__(self):
+        return self.guid

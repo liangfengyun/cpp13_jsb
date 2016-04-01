@@ -3,6 +3,10 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.http import HttpResponseRedirect
 from homeapp.BLL.ttest_service import ttest_service
+from django.db import transaction
+import uuid
+from homeapp.models import TTest
+from homeapp.models import TTest2
 
 """
 class article:
@@ -65,15 +69,21 @@ def add(request):
 def index(request):
 
     if request.method == "POST":
+        newTTestguid = str(uuid.uuid1())
+        willaddTTest = TTest(guid=newTTestguid
+                             , uname=request.POST.get("uname")
+                             , upwd = request.POST.get("upwd"))
+        willaddTTest2 = TTest2(guid=str(uuid.uuid1())
+                               , rname=request.POST.get("rname")
+                               , pguid=newTTestguid)
+        with transaction.atomic():
+            try:
+                willaddTTest.save()
+                willaddTTest2.save()
+            except:
+                pass
 
-        obj1 = {
-            "viewmodel":{
-                "uname":request.POST.get("uname"),
-                "upwd":request.POST.get("upwd"),
-            }
-        }
-
-        return HttpResponse(obj1["viewmodel"]["uname"] + obj1["viewmodel"]["upwd"])
+        return HttpResponse("ca")
     else:
 
         pageIndex = request.GET.get("pageIndex");

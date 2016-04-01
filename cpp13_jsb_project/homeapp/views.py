@@ -4,6 +4,14 @@ from django.http import HttpResponse
 from django.http import HttpResponseRedirect
 from homeapp.BLL.ttest_service import ttest_service
 
+"""
+class article:
+
+    @staticmethod
+    def index(request):
+        return HttpResponse("this is article index!")
+"""
+
 def update(request):
     if request.method == "POST":
 

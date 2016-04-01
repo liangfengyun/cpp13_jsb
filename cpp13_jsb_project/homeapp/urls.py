@@ -9,4 +9,5 @@ urlpatterns = patterns('',
     url(r'^index/$', views.index, name="index"),
     url(r'^add/$', views.add, name="add"),
     url(r'^delete/$', views.delete, name="delete"),
+    url(r'^update/$', views.update, name="update"),
 )

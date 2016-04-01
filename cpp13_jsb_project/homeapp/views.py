@@ -4,6 +4,31 @@ from django.http import HttpResponse
 from django.http import HttpResponseRedirect
 from homeapp.BLL.ttest_service import ttest_service
 
+def update(request):
+    if request.method == "POST":
+
+        # update model
+        updatingmodel = {
+            "guid":request.POST.get("guid"),
+            "uname":request.POST.get("uname"),
+            "upwd":request.POST.get("upwd"),
+        }
+        ttest_service.update(updatingmodel)
+
+        # redirect to index
+        return HttpResponseRedirect("/homeapp/index")
+    else:
+        toupdateguid = request.GET.get("guid")
+        model = ttest_service.select(toupdateguid)
+        print model
+        model = {
+            "guid":model.guid,
+            "uname":model.uname,
+            "upwd":model.upwd,
+        }
+
+        return render(request, "homeapp/update.html", model)
+
 def delete(request):
     todelguid = request.GET.get("guid")
     ttest_service.delete(todelguid)

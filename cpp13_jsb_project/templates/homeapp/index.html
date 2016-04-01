@@ -12,6 +12,10 @@
                 }
                 window.location.href = "/homeapp/delete?guid=" + strguid;
             }
+
+            function updatethis(strguid){
+                window.location.href = "/homeapp/update?guid=" + strguid;
+            }
         </script>
     </head>
     <body>
@@ -27,6 +31,7 @@
                 <td>{{ item.uname  }}</td>
                  <td>{{ item.upwd  }}</td>
                  <td><input type="button" value="删除" onclick="delthis('{{ item.guid }}')"/>         </td>
+                 <td><input type="button" value="修改" onclick="updatethis('{{ item.guid }}')"/>         </td>
             </tr>
     {% endfor %}
          </table>

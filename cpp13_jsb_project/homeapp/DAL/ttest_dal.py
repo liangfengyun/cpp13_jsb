@@ -5,6 +5,21 @@ import uuid
 class ttest_dal():
 
     @staticmethod
+    def select(strguid):
+        ret = TTest.objects.get(guid=strguid)
+        return ret
+
+    @staticmethod
+    def update(updatingmodel):
+
+        toupdatemodel = TTest.objects.get(guid=updatingmodel["guid"])
+        toupdatemodel.uname = updatingmodel["uname"]
+        toupdatemodel.upwd = updatingmodel["upwd"]
+        toupdatemodel.save()
+
+        return 1
+
+    @staticmethod
     def selectall():
         objs = TTest.objects.all()
         return objs

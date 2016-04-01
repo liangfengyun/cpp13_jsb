@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script>
+            /*
+            function add(){
+                window.location.href = "/homeapp/index?pageIndex=15";
+            }
+            */
+        </script>
+    </head>
+    <body>
+         <form method="post" action="" enctype="multipart/form-data" >
+             {% csrf_token %}
+             <input type="hidden" name="guid" value="{{ guid  }}" />
+             <input type="text" name="uname" value="{{ uname  }}" placeholder="请输入名字"/>
+             <input type="text" name="upwd" value="{{ upwd  }}" placeholder="请输入密码"/>
+             <input type="submit" value="提交" />
+         </form>
+     </body>
+</html>

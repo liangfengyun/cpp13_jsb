@@ -109,3 +109,4 @@ def index(request):
         }
 
         return render(request, "homeapp/index.html", obj1)
+

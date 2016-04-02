@@ -69,9 +69,9 @@ DATABASES = {
 DATABASES = {
     'default':{
                 'ENGINE':'django.db.backends.mysql',
-                'NAME':'db_cpp13_jsb',
+                'NAME':'yidong',
                 'USER':'root',
-                'PASSWORD':'root',
+                'PASSWORD':'liang',
                 'HOST':'127.0.0.1',
                 'PORT':'3306',
     }

@@ -14,5 +14,4 @@ admin.site.register(TTest2)
 admin.stte.register(TAccount)
 admin.stte.register(TNote)
 admin.stte.register(TNoteType)
-admin.stte.register(TLog)
 
